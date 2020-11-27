@@ -1,5 +1,5 @@
 # Node build artifacts
-node_modules
+/node_modules
 npm-debug.log
 
 # Local development
@@ -7,7 +7,3 @@ npm-debug.log
 *.dev
 .DS_Store
 .vscode
-
-# Docker
-Dockerfile
-docker-compose.yml
