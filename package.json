@@ -1,7 +1,7 @@
 {
   "name": "sewing-app",
   "version": "0.0.0",
-  "description": "A practice app using NodeJS",
+  "description": "A practice app using NodeJS & Express",
   "engines": {
     "node": "12.x"
   },
