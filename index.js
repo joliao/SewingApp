@@ -1,8 +1,8 @@
 var express = require("express");
 var app = express();
 var path = require("path");
-// var sql = require("mssql"); // MS Sql Server client
 
+// Load application
 app.use(express.static(__dirname + "/public"));
 
 app.get("/", function (req, res) {
@@ -36,28 +36,17 @@ client.query(
   }
 );
 
-// // Connection string parameters.
-// var sqlConfig = {
-//     user: "UserName",
-//     password: "mot de passe",
-//     server: "localhost",
-//     database: "DatabaseName",
-//   };
+// Set up Heroku Rest API
+const Heroku = require("heroku-client");
+const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 
-// // Start server and listen on http://localhost:8081/
-// var server = app.listen(8081, function () {
-//   var host = server.address().address;
-//   var port = server.address().port;
-
-//   console.log("app listening at http://%s:%s", host, port);
-// });
-
-// app.get("/customers", function (req, res) {
-//   sql.connect(sqlConfig, function () {
-//     var request = new sql.Request();
-//     request.query("select * from Sales.Customer", function (err, recordset) {
-//       if (err) console.log(err);
-//       res.end(JSON.stringify(recordset)); // Result in JSON format
-//     });
-//   });
-// });
+heroku
+  .request({
+    method: "GET",
+    path: "/apps",
+    headers: {
+      Foo: "Bar",
+    },
+    parseJSON: false,
+  })
+  .then((response) => {});
