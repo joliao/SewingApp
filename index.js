@@ -35,18 +35,3 @@ client.query(
     client.end();
   }
 );
-
-// Set up Heroku Rest API
-const Heroku = require("heroku-client");
-const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
-
-heroku
-  .request({
-    method: "GET",
-    path: "/apps",
-    headers: {
-      Foo: "Bar",
-    },
-    parseJSON: false,
-  })
-  .then((response) => {});
