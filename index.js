@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express();
 var path = require("path");
-var sql = require("mssql"); // MS Sql Server client
+// var sql = require("mssql"); // MS Sql Server client
 
 app.use(express.static(__dirname + "/public"));
 
